@@ -1,0 +1,49 @@
+﻿@model GiroLouco.Models.Clientes
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Criar Novo Cadastro</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="text" asp-for="nomecliente" class="form-control" placeholder="Digite o Nome do Cliente"/>
+                <span asp-validation-for="nomecliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="sobrenome" class="form-control" placeholder="Digite o Sobrenome do Cliente" />
+                <span asp-validation-for="sobrenome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="cpf" class="form-control" placeholder="Digite o CPF do Cliente" />
+                <span asp-validation-for="cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

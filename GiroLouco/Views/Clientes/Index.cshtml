@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GiroLouco.Models.Clientes>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo Cadastro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomecliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sobrenome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cpf)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomecliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sobrenome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpf)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idcliente">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.idcliente">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.idcliente">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

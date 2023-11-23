@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GiroLouco.Models.Maquinas>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Máquinas</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo Cadastro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patrimonio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.patrimonio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.memoria)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idmaquina">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.idmaquina">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.idmaquina">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model GiroLouco.Models.Maquinas
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idmaquina" />
+            <div class="form-group">
+                <input type="text" asp-for="tipo" class="form-control" placeholder="Digite o tipo da Máquina" />
+                <span asp-validation-for="tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="patrimonio" class="form-control" placeholder="Digite o Patrimônio da Máquina" />
+                <span asp-validation-for="patrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="memoria" class="form-control" placeholder="Digite a Memória da Máquina" />
+                <span asp-validation-for="memoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
